@@ -1,7 +1,7 @@
 {
   "name": "node-18-test-fail",
   "version": "1.0.0",
-  "description": "Reproduces a node 18 test failure.",
+  "description": "Reproduces a node v18.18.0 test failure.",
   "license": "Unlicense",
   "author": {
     "name": "Andreas Huber"
@@ -11,16 +11,6 @@
   },
   "type": "module",
   "scripts": {
-    "build": "tsc",
-    "pretest": "npm run build",
-    "test": "node --test dist/*.spec.js"
-  },
-  "dependencies": {
-    "tslib": "^2.6.2"
-  },
-  "devDependencies": {
-    "@tsconfig/node-lts-strictest-esm": "^18.12.1",
-    "@types/node": "^18.18.1",
-    "typescript": "^5.2.2"
+    "test": "node --test *.spec.js"
   }
 }
