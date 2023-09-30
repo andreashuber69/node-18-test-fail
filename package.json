@@ -1,20 +1,7 @@
 {
-  "name": "node-boilerplate",
+  "name": "node-18-test-fail",
   "version": "1.0.0",
-  "description": "Boilerplate for node projects written in typescript.",
-  "keywords": [
-    "typescript",
-    "node",
-    "boilerplate"
-  ],
-  "homepage": "https://github.com/andreashuber69/node-boilerplate/blob/develop/README.md",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/andreashuber69/node-boilerplate.git"
-  },
-  "bugs": {
-    "url": "https://github.com/andreashuber69/node-boilerplate/issues"
-  },
+  "description": "Reproduces a node 18 test failure.",
   "license": "Unlicense",
   "author": {
     "name": "Andreas Huber"
@@ -23,39 +10,17 @@
     "node": ">=18.16"
   },
   "type": "module",
-  "main": "dist/main.js",
-  "bin": "dist/main.js",
-  "files": [
-    "/dist/",
-    "!/**/*.spec.*",
-    "!/**/*.map",
-    "/*.md"
-  ],
   "scripts": {
-    "start": "tsc && node .",
-    "prelint": "cspell '**' && markdownlint '**/*.md'",
-    "lint": "eslint --report-unused-disable-directives 'src/**'",
-    "prebuild": "npm run lint",
     "build": "tsc",
-    "test-no-coverage": "node --loader tsx --test src/*.spec.ts",
-    "test": "c8 --exclude 'src/*.spec.ts' --reporter=text --reporter=lcov npm run test-no-coverage",
-    "show-coverage": "vite 'coverage/lcov-report' --logLevel error --open",
-    "preci": "npm run build",
-    "ci": "npm test"
+    "pretest": "npm run build",
+    "test": "node --test dist/*.spec.js"
   },
   "dependencies": {
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@andreashuber69/eslint-config": "^1.1.56",
     "@tsconfig/node-lts-strictest-esm": "^18.12.1",
     "@types/node": "^18.18.1",
-    "c8": "^8.0.1",
-    "coveralls": "^3.1.1",
-    "cspell": "^7.3.7",
-    "markdownlint-cli": "^0.37.0",
-    "tsx": "^3.13.0",
-    "typescript": "^5.2.2",
-    "vite": "^4.4.9"
+    "typescript": "^5.2.2"
   }
 }
